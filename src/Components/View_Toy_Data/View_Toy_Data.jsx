@@ -43,7 +43,7 @@ const View_Toy_Data = () => {
         <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" className='md:bg-transparent bg-white'>
             <div className=' w-[98%] md:w-[50%] mx-auto rounded-md my-3 border-2 border-blue-900'>
                 <div className='flex gap-x-5 flex-col md:flex-row items-center justify-evenly'>
-                    <div><img className='w-[400px] h-[300px] ' src={photo} alt="Drone" /></div>
+                    <div className=''><img className='w-[100%] ' src={photo} alt="Drone" /></div>
                     <div className=' leading-8'>
                         <p className='text-[2em] italic font-bold'>{name}</p>
                         <p className='font-bold'>{seller_same}</p>

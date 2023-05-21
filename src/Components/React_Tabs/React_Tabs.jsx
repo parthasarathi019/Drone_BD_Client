@@ -21,9 +21,9 @@ const React_Tabs = () => {
     // const { _id, name, photo, price, seller_same, updare_description, updare_quantity, updare_rating, updare_seller_email } = View_Toy_Data
 
     return (
-        <div >
+        <div  className='my-2'>
             <Tabs>
-               <section className=' bg-red-500'>
+               <section className=' bg-pink-500 py-1 text-[1.4em] font-bold'>
                <div className='md:w-[20%] w-[70%] mx-auto'>
                     <TabList>
                         <div className='flex'>

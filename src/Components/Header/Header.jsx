@@ -29,7 +29,7 @@ console.log(user);
                 x-data="{ isOpen: false }"
                 className="relative bg-gradient-to-b from-[#a1a49b] to-[#618fa1]  shadow sticky top-0 z-50 md:py-3 py-2"
             >
-                <div className="container px-6 py-3 mx-auto">
+                <div className="container px-6 py-1 mx-auto">
                     <div className="flex flex-col md:flex-row md:justify-between md:items-center">
                         <div className="flex items-center justify-between">
                             <div className="flex items-center">
