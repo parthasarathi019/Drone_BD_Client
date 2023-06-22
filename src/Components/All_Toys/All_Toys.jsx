@@ -98,4 +98,5 @@ View Details button */}
 };
 
 export default All_Toys;
-//
+
+

@@ -1,7 +1,12 @@
 //eslint-disable-next-line
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../Providers/AuthProviders';
+import Swal from 'sweetalert2';
 
 const Xag = () => {
+    const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
     const [XAG, setXAG] = useState([])
     useEffect(() => {
         fetch('https://drone-bd-server.vercel.app/xag')
@@ -9,6 +14,29 @@ const Xag = () => {
             .then(Drone => setXAG(Drone))
     }, [])
     console.log(XAG);
+    //--------------------------for login alert system------------------------------------
+    useEffect(() => {
+        if (user) {
+            // User is logged in, navigate to the desired page
+            const desiredPage = sessionStorage.getItem('desiredPage');
+            if (desiredPage) {
+                navigate(desiredPage);
+                sessionStorage.removeItem('desiredPage');
+            }
+        }
+    }, [user, navigate]);
+
+    const handleButtonClick = (d1) => {
+        if (!user) {
+            Swal.fire({
+                title: 'Please Login First',
+            })
+            sessionStorage.setItem('desiredPage', `/View_Toy_Data/${d1}`);
+            navigate('/login');
+        } else {
+            navigate(`/View_Toy_Data/${d1}`);
+        }
+    };
     return (
         <div>
 
@@ -21,6 +49,9 @@ const Xag = () => {
                         <p>{d1.category}</p>
                         <p>${d1.price}</p>
                         <p>Powered by {d1.seller_same}</p>
+                        <button className="btn btn-primary" onClick={() => handleButtonClick(d1._id)}>
+                                <Link to={`/View_Toy_Data/${d1._id}`}>View Details</Link>
+                            </button>
                     </div>
                 </div>
             </section>)

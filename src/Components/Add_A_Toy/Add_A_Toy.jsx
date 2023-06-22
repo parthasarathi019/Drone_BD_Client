@@ -1,5 +1,5 @@
 //eslint-disable-next-line
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 // import { useLoaderData } from 'react-router-dom';
@@ -33,8 +33,11 @@ AOS.init({
 
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import useTitle from '../../../hooks/useTitle';
+import { AuthContext } from '../Providers/AuthProviders';
 
 const Add_A_Toy = () => {
+    const { user } = useContext(AuthContext)
+console.log(user);
     const navigate = useNavigate();
     useTitle('Add A Toy')
     // const Loaded_cofee = useLoaderData()
@@ -97,7 +100,7 @@ const Add_A_Toy = () => {
                             <div className='w-full'>
                                 <div className='w-[80%] mx-auto pt-3'>
                                     <p className='md:text-[.94em] text-[.85em] font-semibold'>Add Name</p>
-                                    <p className='pt-1 md:pt-2'><input name='name' id="name" type='text' required="required" placeholder='Enter Drone Name' className=" bg-white w-full py-2 md:py-3 pl-1 md:pl-2 text-[.65em] md:text-[.85em]" /></p>
+                                    <p className='pt-1 md:pt-2'><input  defaultValue={user?.displayName} name='name' id="name" type='text' required="required" placeholder='Enter Drone Name' className=" bg-white w-full py-2 md:py-3 pl-1 md:pl-2 text-[.65em] md:text-[.85em]" /></p>
                                 </div>
                                 <div className='w-[80%] mx-auto pt-3'>
                                     <p className='md:text-[.94em] text-[.85em] font-semibold '>Add Price</p>
@@ -136,7 +139,7 @@ const Add_A_Toy = () => {
                                 </div>
                                 <div className='w-[80%] mx-auto pt-3'>
                                     <p className='md:text-[.94em] text-[.85em] font-semibold'>Add Seller Email</p>
-                                    <p className='pt-1 md:pt-2'><input name='updare_seller_email' id="details" type='text' required="required" placeholder='Enter Seller Email' className=" bg-white w-full py-2 md:py-3 pl-1 md:pl-2 text-[.65em] md:text-[.85em]" /></p>
+                                    <p className='pt-1 md:pt-2'><input readOnly defaultValue={user?.email} name='updare_seller_email' id="details" type='text' required="required" placeholder='Enter Seller Email' className=" bg-white w-full py-2 md:py-3 pl-1 md:pl-2 text-[.65em] md:text-[.85em]" /></p>
                                 </div>
                             </div>
                         </section>

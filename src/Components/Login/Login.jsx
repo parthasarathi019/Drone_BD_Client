@@ -36,12 +36,12 @@ const Login = () => {
                 const Login_User = userCredential.user;
                 console.log(Login_User);
                 set_success("successfully logged in")
-                // Navigate(from , {replace:true})
+                // navigate(from , {replace:true})
                 // ...
                 navigate(from, { replace: true })//////////////////////////////////// 55
                 Swal.fire({
                     title: 'success',
-                    text: 'Cofee data added successfully!',
+                    text: 'Log In successfully!',
                     icon: 'success',
                     confirmButtonText: '🥰K',
                   })
